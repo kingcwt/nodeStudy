@@ -1,0 +1,24 @@
+{
+  "name": "nodeStudy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kingcwt/nodeStudy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kingcwt/nodeStudy/issues"
+  },
+  "homepage": "https://github.com/kingcwt/nodeStudy#readme",
+  "dependencies": {
+    "install": "^0.12.2",
+    "mime": "^2.3.1"
+  }
+}
