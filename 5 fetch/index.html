@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+<div id="clock">噢哟！</div>
+</body>
+</html>
+<script>
+    //跨域 协议  端口号 域名
+    // let xhr=new XMLHttpRequest();
+    // xhr.open('get','/clock',true);
+    // xhr.onload=function () {
+    //     if(this.status===200){
+    //         clock.innerHTML=xhr.response;
+    //     }
+    // };
+    // xhr.send();
+    fetch('/clock',{
+        method:'GET',
+    }).then(function (res) {
+        return res.text();
+    }).then(function (data) {
+        console.log(data);
+        clock.innerHTML=JSON.parse(data).time;
+    })
+</script>

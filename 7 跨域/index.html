@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<script>-->
+    <!--/*javaScript 实现跨域*/-->
+    <!--function w(data) {-->
+        <!--console.log(data,'xxx');-->
+    <!--}-->
+   <!--let oScript= document.createElement('script');-->
+    <!--oScript.src='http://localhost:3000/jsonp?cb=w';-->
+    <!--document.body.appendChild(oScript);-->
+<!--</script>-->
+
+<script>
+var xhr=new XMLHttpRequest();
+xhr.open('post','http://localhost:3000/clock',true);
+xhr.onreadystatechange=function () {
+    console.log(xhr.response)
+};
+xhr.send('123');
+</script>
+<!--<script src="http://localhost:3000/jsonp?cb=d"></script>-->
+</body>
+</html>
