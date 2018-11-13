@@ -18,10 +18,13 @@
   },
   "homepage": "https://github.com/kingcwt/nodeStudy#readme",
   "dependencies": {
+<<<<<<< HEAD
     "body-parser": "^1.18.3",
     "bootstrap": "^4.1.3",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
+=======
+>>>>>>> 8cf55aac3f43c9739a4fe7196e4e5f3d34daba3b
     "install": "^0.12.2",
     "mime": "^2.3.1"
   }
