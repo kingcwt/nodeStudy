@@ -76,3 +76,31 @@ app.set('views','status');
 
  res.redirect('https://www.baidu.com');
 
+
+
+ ##RESTful API设计
+```
+  - Cookie :
+  设置cookie：
+  let
+      ts = new Date(Date.now() + 20 * 1000).toGMTString();
+  res.setHeader('set-Cookie','name=cwt;Expires='+ts);
+
+  读取cookie:
+  res.headers['cookie']
+
+  Expires:过期时间
+  maxAge:最大过期时间
+  path='/buy1' 才发送cookie
+  domain 域名 默认当前域名 {domain:'a.baidu.com}
+  httpOnly  不能通过浏览器Javascript访问 {httpOnly:true}
+  secure  只能通过https访问
+
+  require 缓存问题 ：
+  delete require.cache[require.resolve('./user.json')];
+
+
+  -session
+  
+  ```
+

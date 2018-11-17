@@ -20,14 +20,15 @@ function bodyParse(){
 }
 
 // app.use(bodyParse());
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
+app.use(express.static('public'));
 /*ejs 模板引擎 html后缀渲染成ejs*/
-app.engine('html',require('ejs').__express);
-/*更改ejs默认文件夹目录名字*/
-app.set('views','status');
-//更改默认后缀名字
-app.set('view engine','html');
+// app.engine('html',require('ejs').__express);
+// /*更改ejs默认文件夹目录名字*/
+// app.set('views','status');
+// //更改默认后缀名字
+// app.set('view engine','html');
 
 
 

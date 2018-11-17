@@ -3,7 +3,7 @@ let app=express();
 app.listen(3000,()=>console.log('server at 3000'));
 
 //middleware 中间件
-// 1   中间件的功能 可以进行权限判断
+// _EXPRESS   中间件的功能 可以进行权限判断
 // 2   可以对req,res属性的扩充
 // 3    中间件要放在执行路径的上面
 // 4  中间件默认情况下都匹配  可以指定匹配

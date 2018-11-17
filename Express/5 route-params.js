@@ -6,10 +6,10 @@ app.get('/user',(req,res)=>{
 });
 app.get('/user/:id/:name',(req,res)=>{
     // console.log(req.params);
-    /* /user/1/cwt => {id:1,name:cwt} =params
+    /* /user/_EXPRESS/cwt => {id:_EXPRESS,name:cwt} =params
     * */
     res.end('select one'+req.params.id+req.params.name);
-    let url='/user/1/3';
+    let url='/user/_EXPRESS/3';
     let url2='/user/:id/:name';
     let arr=[];
     let newReg=url2.replace(/:[^\/]+/g,function () {
