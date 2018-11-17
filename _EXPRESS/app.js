@@ -1,0 +1,22 @@
+let express = require('express');
+let app = express();
+let port = 3000;
+app.listen(port, () => console.log(`Server at:${port}`));
+
+
+
+app.get('/', (req, res) => {
+    res.redirect('https://www.baidu.com');
+});
+
+app.get('/index', (req, res) => {
+    res.send('崔文涛')
+});
+
+
+app.all('*', (req, res) => {
+    res.end('404  ojbk!')
+});
+
+
+
