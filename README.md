@@ -78,9 +78,9 @@ app.set('views','status');
 
 
 
- ##RESTful API设计
+ ## RESTful API设计
 ```
-  - Cookie :
+   Cookie :
   设置cookie：
   let
       ts = new Date(Date.now() + 20 * 1000).toGMTString();
