@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./bootstrap.css">
+</head>
+<body>
+<div class="container">
+    <div class="row" style="margin:30px 0">
+        <div class="col-md-5">
+            <label for="username">用户名</label>
+            <input type="text" id="username">
+        </div>
+        <div class="col-md-5">
+            <label for="password">密码</label>
+            <input type="text" id="password">
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-primary add">添加</button>
+        </div>
+    </div>
+    <ul class="list-group col-md-8 col-md-offset-2">
+
+    </ul>
+</div>
+</body>
+</html>
+<script>
+    let template = function (username,password,id) {
+        return `<li class="list-group-item clearfix">
+                          <span>  用户名：${username}  </span>
+                          <span>密码：${password}</span>
+                            <button class="btn btn-sm  btn-danger float-right" data-id="${id}">删除</button>
+                        </li>`;
+    };
+    let oUl=document.querySelector('.list-group');  //没有DOM映射
+    let username=document.getElementById('username');
+    let password=document.getElementById('password');
+    let add=document.querySelector('.add');
+    (function () {
+        function extracted(data) {
+            let str = '';
+            data.forEach(item => {
+                str += template(item.username, item.password,item.id);
+            });
+            oUl.innerHTML = str;
+        }
+        //_EXPRESS 查询所有用户
+        fetch('/user').then((res) => {
+            return res.json();
+        }).then(data => {
+            extracted(data);
+        }).catch(err => console.log(err));
+        //2 添加用户
+        add.addEventListener('click',()=>{
+            fetch('/user/reg',{
+                method:'POST',
+                body:JSON.stringify({username:username.value,password:password.value})
+            }).then(res=>{
+                return res.json();
+            }).then(data=>{
+                //在内存中创建一个div 根据数据创建一个li  将LI放到ul里
+                let oDiv=document.createElement('div');
+                oDiv.innerHTML=template(data.username,data.password,data.id);
+                oUl.appendChild(oDiv.firstElementChild);
+                username.value=password.value='';
+            })
+        },false);
+        oUl.addEventListener('click',(e)=>{
+            if(e.target.tagName==='BUTTON'){
+                let id=e.target.dataset.id;
+                fetch(`user?id=${id}`,{
+                    method:'DELETE',
+                }).then(res=>{
+                    return res.json();
+                }).then(data=>{
+                    oUl.removeChild(e.target.parentNode);
+                })
+            }
+        })
+    })()
+</script>
